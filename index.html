@@ -1,7 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Istvan Banto - Graphic Designer</title>
@@ -26,6 +24,7 @@
             overflow-x: hidden;
         }
 
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
@@ -87,6 +86,7 @@
             width: 100%;
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 70px;
             padding: 4rem 2rem;
@@ -94,11 +94,15 @@
             text-align: center;
         }
 
-        .hero img {
-            max-width: 220px;
-            width: 100%;
-            height: auto;
+        .hero h1 {
+            font-size: 4.5rem;
+            color: var(--dark);
             margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-family: 'Arial Black', sans-serif;
+            width: 100%;
         }
 
         .hero p {
@@ -151,15 +155,15 @@
             color: var(--yellow);
         }
 
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        #portfolio,
-        #about,
-        #contact {
+        /* Portfolio Section */
+        #portfolio {
             padding: 4rem 0;
         }
 
@@ -173,8 +177,37 @@
             text-align: center;
         }
 
-        .gallery {
+        .category-nav {
             display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--yellow);
+            color: var(--dark);
+        }
+
+        .gallery {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
             flex-wrap: wrap;
             padding: 0 10px;
             margin-bottom: 3rem;
@@ -182,6 +215,7 @@
         }
 
         .gallery-column {
+            -ms-flex: 33.33%;
             flex: 33.33%;
             max-width: 33.33%;
             padding: 0 4px;
@@ -212,6 +246,43 @@
             filter: brightness(0.85);
         }
 
+        @media screen and (max-width: 1024px) {
+            .gallery-column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .gallery-column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+        .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+        .portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+        .portfolio-item:nth-child(7) { animation-delay: 0.7s; }
+        .portfolio-item:nth-child(8) { animation-delay: 0.8s; }
+        .portfolio-item:nth-child(9) { animation-delay: 0.9s; }
+        .portfolio-item:nth-child(10) { animation-delay: 1s; }
+        .portfolio-item:nth-child(11) { animation-delay: 1.1s; }
+        .portfolio-item:nth-child(12) { animation-delay: 1.2s; }
+        .portfolio-item:nth-child(13) { animation-delay: 1.3s; }
+        .portfolio-item:nth-child(14) { animation-delay: 1.4s; }
+        .portfolio-item:nth-child(15) { animation-delay: 1.5s; }
+        .portfolio-item:nth-child(16) { animation-delay: 1.6s; }
+        .portfolio-item:nth-child(17) { animation-delay: 1.7s; }
+        .portfolio-item:nth-child(18) { animation-delay: 1.8s; }
+        .portfolio-item:nth-child(19) { animation-delay: 1.9s; }
+        .portfolio-item:nth-child(20) { animation-delay: 2s; }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -223,17 +294,134 @@
             }
         }
 
-        .about-content {
-            background: #222;
-            padding: 3rem;
-            border: 3px solid var(--yellow);
-            line-height: 1.8;
+        /* Modal for zoomed view */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow: auto;
         }
 
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            text-align: justify;
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            display: none;
+        }
+
+        .modal-close:hover {
+            display: none;
+        }
+
+.modal {
+  display: none;                 /* shown when you add .active in JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Square gold close button */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid #FFD700;
+  color: #FFD700;        /* your gold color */
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+  border-radius: 0;      /* hard square */
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 215, 0, 0.12);
+  color: #FFEA70;
+  transform: scale(1.04);
+}
+
+.modal-close:active {
+  transform: scale(0.96);
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 3px;
+}
+
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 0;
         }
 
         .contact-container {
@@ -283,6 +471,7 @@
         .contact-details a {
             color: var(--yellow);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .contact-details a:hover {
@@ -317,6 +506,7 @@
             color: var(--light);
             font-family: inherit;
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-group input:focus,
@@ -326,6 +516,25 @@
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
+        /* About Section */
+        #about {
+            padding: 4rem 0;
+        }
+
+        .about-content {
+            background: #222;
+            padding: 3rem;
+            border: 3px solid var(--yellow);
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Footer */
         footer {
             background: #0a0a0a;
             border-top: 3px solid var(--yellow);
@@ -411,81 +620,8 @@
             margin-top: 1rem;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.88);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 2000;
-            overflow: auto;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
-
-        .modal-content img {
-            display: block;
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            width: 44px;
-            height: 44px;
-            background: transparent;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2001;
-            padding: 0;
-            border-radius: 0;
-            transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-        }
-
-        .modal-close:hover {
-            background: rgba(255, 215, 0, 0.12);
-            color: #FFEA70;
-            transform: scale(1.04);
-        }
-
-        .modal-close:active {
-            transform: scale(0.96);
-        }
-
-        .modal-close:focus-visible {
-            outline: 2px solid #FFD700;
-            outline-offset: 3px;
-        }
-
-        @media screen and (max-width: 1024px) {
-            .gallery-column {
-                flex: 50%;
-                max-width: 50%;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
+        /* Responsive */
+        @media (max-width: 768px) {
             nav ul {
                 gap: 1rem;
             }
@@ -494,17 +630,17 @@
                 font-size: 0.9rem;
             }
 
-            .logo {
-                font-size: 1.3rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
             .contact-container {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-column {
-                flex: 100%;
-                max-width: 100%;
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
             }
 
             .about-content {
@@ -515,14 +651,18 @@
                 padding: 0.8rem 1rem;
             }
 
-            .modal-close {
-                top: 10px;
-                right: 10px;
+            .logo {
+                font-size: 1.3rem;
             }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
             <div class="logo">IB</div>
@@ -534,33 +674,86 @@
         </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
-        <img src="https://istibanto.github.io/istibanto-portfolio/bd-weblogo.png" alt="Logo">
+<img src="https://istibanto.github.io/istibanto-portfolio/bd-weblogo.png" alt="LOGO"><br/>        
         <p>Graphic Designer & Creative Professional</p>
         <div class="cta-buttons">
-            <button class="btn btn-primary" onclick="scrollToSection('portfolio')">View Work</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</button>
+            <button class="btn btn-primary" onclick="scrollTo('portfolio')">View Work</button>
+            <button class="btn btn-secondary" onclick="scrollTo('contact')">Get In Touch</button>
         </div>
-    </section>
-
-    <main>
+	</section>
+	<main>
+        <!-- Portfolio Section -->
         <section id="portfolio">
             <h2 class="section-title">Portfolio</h2>
-            <div class="gallery" id="gallery"></div>
+            
+            <div class="gallery" id="gallery"><div class="gallery-column">
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00000.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00000.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00001.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00001.jpg')" style="opacity: 1">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00002.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00002.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00003.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00003.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00004.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00004.jpg')" style="opacity: 1;">
+    </div></div><div class="gallery-column">
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00005.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00005.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00006.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00006.jpg')" style="opacity: 1">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00007.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00007.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00008.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00008.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00009.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00009.jpg')" style="opacity: 1;">
+    </div></div><div class="gallery-column">
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00010.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00010.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00011.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00011.jpg')" style="opacity: 1">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00012.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00012.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00013.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00013.jpg')" style="opacity: 1;">
+    </div>
+<div class="portfolio-item" style="animation-delay: 0s;">
+    <img src="imgs/img-00014.jpg" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('imgs/img-00014.jpg')" style="opacity: 1;">
+    </div></div></div>
         </section>
 
+        <!-- About Section -->
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <p>Istvan Banto is a creative and innovative junior graphic designer with experience developing impactful visual communications across both print and digital media. Currently completing his BA (Hons) in Graphic Design at London College of Contemporary Arts (LCCA), a University for the Creative Arts (UCA) campus, with a final major advertisement project underway.</p>
+                
                 <p>He combines formal education with practical experience in delivering high quality design solutions that effectively convey information while adhering to established brand guidelines and principles.</p>
+                
                 <p>His background in creating engaging visual elements, publications, digital assets and campaign posters has developed his ability to interpret briefs, develop concepts, and manage projects from inception to completion.</p>
+                
                 <p>Istvan is particularly interested in applying his design expertise to create meaningful communications that inform and engage the public about important work that impacts their communities. His adaptable nature and problem-solving skills enable him to thrive in dynamic environments, where he can contribute his creative talents to impactful and empathetic campaigns.</p>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
             <h2 class="section-title">Contact Me</h2>
+            
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -583,7 +776,7 @@
                         <div class="contact-icon">💼</div>
                         <div class="contact-details">
                             <h3>LinkedIn</h3>
-                            <p><a href="https://linkedin.com/in/istibanto" target="_blank" rel="noopener noreferrer">linkedin.com/in/istibanto</a></p>
+                            <p><a href="https://linkedin.com/in/istibanto" target="_blank">linkedin.com/in/istibanto</a></p>
                         </div>
                     </div>
 
@@ -591,7 +784,7 @@
                         <div class="contact-icon">📸</div>
                         <div class="contact-details">
                             <h3>Instagram</h3>
-                            <p><a href="https://instagram.com/istibanto" target="_blank" rel="noopener noreferrer">@istibanto</a></p>
+                            <p><a href="https://instagram.com/istibanto" target="_blank">@istibanto</a></p>
                         </div>
                     </div>
                 </div>
@@ -617,11 +810,12 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="mailto:bantoistvan@gmail.com" title="Email">✉</a>
-            <a href="https://linkedin.com/in/istibanto" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
-            <a href="https://instagram.com/istibanto" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
+            <a href="https://linkedin.com/in/istibanto" target="_blank" title="LinkedIn">in</a>
+            <a href="https://instagram.com/istibanto" target="_blank" title="Instagram">📷</a>
         </div>
 
         <div class="qr-container">
@@ -633,112 +827,116 @@
         <p class="footer-text">&copy; 2026 Istvan Banto. All rights reserved. | Designed & Coded by IB</p>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="imageModal">
-        <button class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="">
-        </div>
+<!-- Modal -->
+<div class="modal" id="imageModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="">
     </div>
+</div>
+<script>
+    // Portfolio Data – real files
+    const portfolioData = [
+        { id: 1,  img: 'imgs/img-00000.jpg' },
+        { id: 2,  img: 'imgs/img-00001.jpg' },
+        { id: 3,  img: 'imgs/img-00002.jpg' },
+        { id: 4,  img: 'imgs/img-00003.jpg' },
+        { id: 5,  img: 'imgs/img-00004.jpg' },
+        { id: 6,  img: 'imgs/img-00005.jpg' },
+        { id: 7,  img: 'imgs/img-00006.jpg' },
+        { id: 8,  img: 'imgs/img-00007.jpg' },
+        { id: 9,  img: 'imgs/img-00008.jpg' },
+        { id: 10, img: 'imgs/img-00009.jpg' },
+        { id: 11, img: 'imgs/img-00010.jpg' },
+        { id: 12, img: 'imgs/img-00011.jpg' },
+        { id: 13, img: 'imgs/img-00012.jpg' },
+        { id: 14, img: 'imgs/img-00013.jpg' },
+        { id: 15, img: 'imgs/img-00014.jpg' }
+    ];
 
-    <script>
-        const portfolioData = [
-            { id: 1, img: 'imgs/img-00000.jpg' },
-            { id: 2, img: 'imgs/img-00001.jpg' },
-            { id: 3, img: 'imgs/img-00002.jpg' },
-            { id: 4, img: 'imgs/img-00003.jpg' },
-            { id: 5, img: 'imgs/img-00004.jpg' },
-            { id: 6, img: 'imgs/img-00005.jpg' },
-            { id: 7, img: 'imgs/img-00006.jpg' },
-            { id: 8, img: 'imgs/img-00007.jpg' },
-            { id: 9, img: 'imgs/img-00008.jpg' },
-            { id: 10, img: 'imgs/img-00009.jpg' },
-            { id: 11, img: 'imgs/img-00010.jpg' },
-            { id: 12, img: 'imgs/img-00011.jpg' },
-            { id: 13, img: 'imgs/img-00012.jpg' },
-            { id: 14, img: 'imgs/img-00013.jpg' },
-            { id: 15, img: 'imgs/img-00014.jpg' }
-        ];
+    function renderGallery() {
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
 
-        function renderGallery() {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = '';
-
-            const columns = [[], [], []];
-
-            portfolioData.forEach((item, index) => {
-                columns[index % 3].push(item);
-            });
-
-            columns.forEach((columnItems) => {
-                const columnDiv = document.createElement('div');
-                columnDiv.className = 'gallery-column';
-
-                columnItems.forEach((item, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'portfolio-item';
-                    div.style.animationDelay = `${index * 0.1}s`;
-                    div.innerHTML = `
-                        <img
-                            src="${item.img}"
-                            alt="Portfolio work ${item.id}"
-                            onerror="this.style.opacity='0.3'"
-                            onclick="openModal('${item.img}')">
-                    `;
-                    columnDiv.appendChild(div);
-                });
-
-                gallery.appendChild(columnDiv);
-            });
-        }
-
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = imageSrc;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            modal.classList.remove('active');
-            modalImage.src = '';
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('imageModal').addEventListener('click', function (e) {
-            if (e.target.id === 'imageModal') {
-                closeModal();
-            }
+        // Distribute images evenly across 3 columns
+        const columns = [[], [], []];
+        portfolioData.forEach((item, index) => {
+            columns[index % 3].push(item);
         });
 
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        // Create column divs
+        columns.forEach((columnItems) => {
+            const columnDiv = document.createElement('div');
+            columnDiv.className = 'gallery-column';
+
+            columnItems.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'portfolio-item';
+                div.style.animationDelay = `${index * 0.1}s`;
+                div.innerHTML = `
+                    <img
+                        src="${item.img}"
+                        alt="Portfolio work ${item.id}"
+                        onerror="this.style.opacity='0.3'"
+                        onclick="openModal('${item.img}')">
+                `;
+                columnDiv.appendChild(div);
+            });
+
+            gallery.appendChild(columnDiv);
         });
+    }
 
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    function openModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on background click
+    document.getElementById('imageModal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'imageModal') {
+            closeModal();
         }
+    });
 
-        function handleFormSubmit(e) {
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        alert('Thank you! Your message has been recorded. Istvan will get back to you soon!');
+        e.target.reset();
+    }
+
+    // Initialize gallery
+    renderGallery();
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Thank you! Your message has been recorded. Istvan will get back to you soon!');
-            e.target.reset();
-        }
-
-        document.querySelectorAll('nav a').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = link.getAttribute('href');
-                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-            });
+            const target = link.getAttribute('href');
+            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
         });
+    });
+</script>
 
-        renderGallery();
-    </script>
 </body>
 </html>
