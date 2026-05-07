@@ -1,3 +1,4 @@
+xml
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
@@ -87,7 +87,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 70px;
             padding: 4rem 2rem;
@@ -95,15 +94,11 @@
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-family: 'Arial Black', sans-serif;
+        .hero img {
+            max-width: 220px;
             width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
         }
 
         .hero p {
@@ -156,15 +151,15 @@
             color: var(--yellow);
         }
 
-        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Portfolio Section */
-        #portfolio {
+        #portfolio,
+        #about,
+        #contact {
             padding: 4rem 0;
         }
 
@@ -178,37 +173,8 @@
             text-align: center;
         }
 
-        .category-nav {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid var(--yellow);
-            color: var(--yellow);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background: var(--yellow);
-            color: var(--dark);
-        }
-
         .gallery {
-            display: -ms-flexbox;
             display: flex;
-            -ms-flex-wrap: wrap;
             flex-wrap: wrap;
             padding: 0 10px;
             margin-bottom: 3rem;
@@ -216,7 +182,6 @@
         }
 
         .gallery-column {
-            -ms-flex: 33.33%;
             flex: 33.33%;
             max-width: 33.33%;
             padding: 0 4px;
@@ -247,43 +212,6 @@
             filter: brightness(0.85);
         }
 
-        @media screen and (max-width: 1024px) {
-            .gallery-column {
-                -ms-flex: 50%;
-                flex: 50%;
-                max-width: 50%;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .gallery-column {
-                -ms-flex: 100%;
-                flex: 100%;
-                max-width: 100%;
-            }
-        }
-
-        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
-        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
-        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
-        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
-        .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
-        .portfolio-item:nth-child(6) { animation-delay: 0.6s; }
-        .portfolio-item:nth-child(7) { animation-delay: 0.7s; }
-        .portfolio-item:nth-child(8) { animation-delay: 0.8s; }
-        .portfolio-item:nth-child(9) { animation-delay: 0.9s; }
-        .portfolio-item:nth-child(10) { animation-delay: 1s; }
-        .portfolio-item:nth-child(11) { animation-delay: 1.1s; }
-        .portfolio-item:nth-child(12) { animation-delay: 1.2s; }
-        .portfolio-item:nth-child(13) { animation-delay: 1.3s; }
-        .portfolio-item:nth-child(14) { animation-delay: 1.4s; }
-        .portfolio-item:nth-child(15) { animation-delay: 1.5s; }
-        .portfolio-item:nth-child(16) { animation-delay: 1.6s; }
-        .portfolio-item:nth-child(17) { animation-delay: 1.7s; }
-        .portfolio-item:nth-child(18) { animation-delay: 1.8s; }
-        .portfolio-item:nth-child(19) { animation-delay: 1.9s; }
-        .portfolio-item:nth-child(20) { animation-delay: 2s; }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -295,67 +223,17 @@
             }
         }
 
-        /* Modal for zoomed view */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            overflow: auto;
+        .about-content {
+            background: #222;
+            padding: 3rem;
+            border: 3px solid var(--yellow);
+            line-height: 1.8;
         }
 
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-        }
-
-        .modal-close {
-            display: none;
-        }
-
-        .modal-close:hover {
-            display: none;
-        }
-
-        @media (max-width: 1024px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .modal-close {
-                top: 10px;
-                right: 10px;
-            }
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 4rem 0;
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            text-align: justify;
         }
 
         .contact-container {
@@ -405,7 +283,6 @@
         .contact-details a {
             color: var(--yellow);
             text-decoration: none;
-            transition: all 0.3s ease;
         }
 
         .contact-details a:hover {
@@ -440,7 +317,6 @@
             color: var(--light);
             font-family: inherit;
             font-size: 1rem;
-            transition: all 0.3s ease;
         }
 
         .form-group input:focus,
@@ -450,25 +326,6 @@
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
-        /* About Section */
-        #about {
-            padding: 4rem 0;
-        }
-
-        .about-content {
-            background: #222;
-            padding: 3rem;
-            border: 3px solid var(--yellow);
-            line-height: 1.8;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            text-align: justify;
-        }
-
-        /* Footer */
         footer {
             background: #0a0a0a;
             border-top: 3px solid var(--yellow);
@@ -554,8 +411,81 @@
             margin-top: 1rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .modal-content img {
+            display: block;
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            padding: 0;
+            border-radius: 0;
+            transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 215, 0, 0.12);
+            color: #FFEA70;
+            transform: scale(1.04);
+        }
+
+        .modal-close:active {
+            transform: scale(0.96);
+        }
+
+        .modal-close:focus-visible {
+            outline: 2px solid #FFD700;
+            outline-offset: 3px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .gallery-column {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
             nav ul {
                 gap: 1rem;
             }
@@ -564,17 +494,17 @@
                 font-size: 0.9rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .logo {
+                font-size: 1.3rem;
             }
 
             .contact-container {
                 grid-template-columns: 1fr;
             }
 
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
+            .gallery-column {
+                flex: 100%;
+                max-width: 100%;
             }
 
             .about-content {
@@ -585,18 +515,14 @@
                 padding: 0.8rem 1rem;
             }
 
-            .logo {
-                font-size: 1.3rem;
+            .modal-close {
+                top: 10px;
+                right: 10px;
             }
-        }
-
-        .hidden {
-            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <div class="logo">IB</div>
@@ -608,42 +534,33 @@
         </nav>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
-        <h1>Istvan Banto</h1>
+        <img src="https://istibanto.github.io/istibanto-portfolio/bd-weblogo.png" alt="Logo">
         <p>Graphic Designer & Creative Professional</p>
         <div class="cta-buttons">
-            <button class="btn btn-primary" onclick="scrollTo('portfolio')">View Work</button>
-            <button class="btn btn-secondary" onclick="scrollTo('contact')">Get In Touch</button>
+            <button class="btn btn-primary" onclick="scrollToSection('portfolio')">View Work</button>
+            <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</button>
         </div>
     </section>
 
     <main>
-        <!-- Portfolio Section -->
         <section id="portfolio">
             <h2 class="section-title">Portfolio</h2>
-            
             <div class="gallery" id="gallery"></div>
         </section>
 
-        <!-- About Section -->
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <p>Istvan Banto is a creative and innovative junior graphic designer with experience developing impactful visual communications across both print and digital media. Currently completing his BA (Hons) in Graphic Design at London College of Contemporary Arts (LCCA), a University for the Creative Arts (UCA) campus, with a final major advertisement project underway.</p>
-                
                 <p>He combines formal education with practical experience in delivering high quality design solutions that effectively convey information while adhering to established brand guidelines and principles.</p>
-                
                 <p>His background in creating engaging visual elements, publications, digital assets and campaign posters has developed his ability to interpret briefs, develop concepts, and manage projects from inception to completion.</p>
-                
                 <p>Istvan is particularly interested in applying his design expertise to create meaningful communications that inform and engage the public about important work that impacts their communities. His adaptable nature and problem-solving skills enable him to thrive in dynamic environments, where he can contribute his creative talents to impactful and empathetic campaigns.</p>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2 class="section-title">Contact Me</h2>
-            
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -666,7 +583,7 @@
                         <div class="contact-icon">💼</div>
                         <div class="contact-details">
                             <h3>LinkedIn</h3>
-                            <p><a href="https://linkedin.com/in/istibanto" target="_blank">linkedin.com/in/istibanto</a></p>
+                            <p><a href="https://linkedin.com/in/istibanto" target="_blank" rel="noopener noreferrer">linkedin.com/in/istibanto</a></p>
                         </div>
                     </div>
 
@@ -674,7 +591,7 @@
                         <div class="contact-icon">📸</div>
                         <div class="contact-details">
                             <h3>Instagram</h3>
-                            <p><a href="https://instagram.com/istibanto" target="_blank">@istibanto</a></p>
+                            <p><a href="https://instagram.com/istibanto" target="_blank" rel="noopener noreferrer">@istibanto</a></p>
                         </div>
                     </div>
                 </div>
@@ -700,12 +617,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="mailto:bantoistvan@gmail.com" title="Email">✉</a>
-            <a href="https://linkedin.com/in/istibanto" target="_blank" title="LinkedIn">in</a>
-            <a href="https://instagram.com/istibanto" target="_blank" title="Instagram">📷</a>
+            <a href="https://linkedin.com/in/istibanto" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+            <a href="https://instagram.com/istibanto" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
         </div>
 
         <div class="qr-container">
@@ -726,41 +642,34 @@
     </div>
 
     <script>
-        // Portfolio Data
         const portfolioData = [
-            { id: 1, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/73110dd5-ef04-48b0-ae40-84d58804c552' },
-            { id: 2, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/180002e9-4fcf-4361-b4f7-6932e420ef93' },
-            { id: 3, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/956c393f-b55d-4d22-a2d2-1d3e2c9e6903' },
-            { id: 4, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/4c63ea63-158b-4100-b9c2-d56aab72bf21' },
-            { id: 5, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/14c6a3dd-5896-46e9-bfb7-770589e8ba6b' },
-            { id: 6, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2360abf8-fd85-45de-82ba-8b0153f8ece7' },
-            { id: 7, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/86ce32fa-87e4-4928-baec-5843fb8e9b69' },
-            { id: 8, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/6331d230-4e8e-4e92-a0fb-3699b1f852e3' },
-            { id: 9, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c2340b32-4aff-49f0-86d9-84a471af2f13' },
-            { id: 10, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c859e886-50e7-4960-b89d-e05abf876273' },
-            { id: 11, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/84a7a779-621d-4927-a06c-75124b81e23c' },
-            { id: 12, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/752515fa-4f93-4132-aa3d-ec7129e915cd' },
-            { id: 13, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ed2f6683-084c-4e23-a019-5703b1fe4539' },
-            { id: 14, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/b457d6b2-34dc-44ea-8d5e-3b64d23ea893' },
-            { id: 15, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/3643d108-2e9f-45f4-8c46-5726e70ea172' },
-            { id: 16, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/57cc23dd-0c49-42d2-8d97-3840735608ce' },
-            { id: 17, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e26609f6-06f7-4468-a5e2-3920891fae2a' },
-            { id: 18, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c1c2758d-856d-420c-9601-71ea3b747b2e' },
-            { id: 19, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/83b3ba77-3e66-4d51-951c-2c8d54b49457' },
-            { id: 20, img: 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/229058ce-81d6-4fca-9ede-e7e6b95bd654' }
+            { id: 1, img: 'imgs/img-00000.jpg' },
+            { id: 2, img: 'imgs/img-00001.jpg' },
+            { id: 3, img: 'imgs/img-00002.jpg' },
+            { id: 4, img: 'imgs/img-00003.jpg' },
+            { id: 5, img: 'imgs/img-00004.jpg' },
+            { id: 6, img: 'imgs/img-00005.jpg' },
+            { id: 7, img: 'imgs/img-00006.jpg' },
+            { id: 8, img: 'imgs/img-00007.jpg' },
+            { id: 9, img: 'imgs/img-00008.jpg' },
+            { id: 10, img: 'imgs/img-00009.jpg' },
+            { id: 11, img: 'imgs/img-00010.jpg' },
+            { id: 12, img: 'imgs/img-00011.jpg' },
+            { id: 13, img: 'imgs/img-00012.jpg' },
+            { id: 14, img: 'imgs/img-00013.jpg' },
+            { id: 15, img: 'imgs/img-00014.jpg' }
         ];
 
         function renderGallery() {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
 
-            // Distribute images evenly across 3 columns
             const columns = [[], [], []];
+
             portfolioData.forEach((item, index) => {
                 columns[index % 3].push(item);
             });
 
-            // Create column divs
             columns.forEach((columnItems) => {
                 const columnDiv = document.createElement('div');
                 columnDiv.className = 'gallery-column';
@@ -770,7 +679,11 @@
                     div.className = 'portfolio-item';
                     div.style.animationDelay = `${index * 0.1}s`;
                     div.innerHTML = `
-                        <img src="${item.img}" alt="Portfolio work" onerror="this.style.opacity='0.3'" onclick="openModal('${item.img}')">
+                        <img
+                            src="${item.img}"
+                            alt="Portfolio work ${item.id}"
+                            onerror="this.style.opacity='0.3'"
+                            onclick="openModal('${item.img}')">
                     `;
                     columnDiv.appendChild(div);
                 });
@@ -789,25 +702,25 @@
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
             modal.classList.remove('active');
+            modalImage.src = '';
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal on background click
-        document.getElementById('imageModal')?.addEventListener('click', (e) => {
+        document.getElementById('imageModal').addEventListener('click', function (e) {
             if (e.target.id === 'imageModal') {
                 closeModal();
             }
         });
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
 
-        function scrollTo(id) {
+        function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -817,17 +730,15 @@
             e.target.reset();
         }
 
-        // Initialize
-        renderGallery();
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
+        document.querySelectorAll('nav a').forEach(function (link) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = link.getAttribute('href');
                 document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        renderGallery();
     </script>
 </body>
 </html>
